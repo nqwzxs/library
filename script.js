@@ -9,3 +9,7 @@ function Book(title, author, pages, isRead) {
         return `${title} by ${author}, ${pages} pages, ${isRead ? "finished reading" : "not read yet"}`
     }
 }
+
+function addBookToLibrary(title, author, pages, isRead) {
+    myLibrary.push(new Book(title, author, pages, isRead));
+}

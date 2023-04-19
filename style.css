@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 
-* {
+*, ::before, ::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -17,6 +17,8 @@ body {
     padding: 32px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 32px;
+    max-width: 1200px;
+    margin-inline: auto;
 }
 
 .book-card {
@@ -27,4 +29,102 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.2);
+}
+
+header {
+    background-color: #f1f5f9;
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+}
+
+header .container {
+    margin-inline: auto;
+    max-width: 1200px;
+    display: flex;
+    padding: 32px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.button {
+    padding: 16px 32px;
+    border: 0;
+    background: #e2e8f0;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.add-book-form {
+    padding: 32px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    visibility: hidden;
+}
+
+.add-book-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+form input {
+    outline: none;
+    border: none;
+    padding: 16px;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+form input::placeholder {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+form .book-status {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 32px;
+    align-items: center;
+}
+
+form .book-status input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+form .button {
+    width: 100%;
+    background: #334155;
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: rgb(0, 0, 0, 0.2);
+    visibility: hidden;
+}
+
+.active {
+    visibility: visible;
 }

@@ -9,8 +9,28 @@
     <title>Library</title>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="logo">Library</div>
+            <button class="button add-book-button">Add Book</button>
+        </div>
+    </header>
     <main>
         <div class="book-grid"></div>
     </main>
+    <div class="add-book-form">
+        <form>
+            <h1>Add Book</h1>
+            <input id="book-title" type="text" placeholder="Title">
+            <input id="book-author" type="text" placeholder="Author">
+            <input id="book-pages" type="number" placeholder="Number of pages">
+            <div class="book-status">
+                <label for="book-status">Have you read the book?</label>
+                <input type="checkbox" name="" id="book-status">
+            </div>
+            <button class="button" type="submit">Add</button>
+        </form>
+    </div>
+    <div class="overlay"></div>
 </body>
 </html>

@@ -1,3 +1,6 @@
+const addBookButton = document.querySelector(".add-book-button");
+const addBookForm = document.querySelector(".add-book-form");
+const overlay = document.querySelector(".overlay");
 const bookGrid = document.querySelector(".book-grid");
 
 let myLibrary = [];
@@ -35,3 +38,16 @@ function displayBook() {
         bookCard.appendChild(bookStatus);
     });
 }
+
+function displayForm() {
+    addBookForm.classList.add("active");
+    overlay.classList.add("active");
+}
+
+function hideForm() {
+    addBookForm.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
+addBookButton.addEventListener("click", displayForm);
+overlay.addEventListener("click",hideForm)

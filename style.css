@@ -33,7 +33,7 @@ body {
     box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.2);
 }
 
-.book-card .remove-book-button {
+.book-card button {
     width: 100%;
     margin-top: 32px;
     background: #fee2e2;

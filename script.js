@@ -1,4 +1,5 @@
 const addBookButton = document.querySelector(".add-book-button");
+const removeBookButton = document.querySelector(".remove-book-button");
 const formCard = document.querySelector(".form-card");
 const overlay = document.querySelector(".overlay");
 const bookGrid = document.querySelector(".book-grid");
@@ -34,14 +35,13 @@ function displayBooks() {
         bookCard.classList.add("book-card");
         bookGrid.appendChild(bookCard);
         bookCard.innerHTML = `
-        <div> Title: ${title} </div>
-        <div> Author: ${author} </div>
-        <div> Number of pages: ${pages} </div>
-        <div> Status: ${isRead ? "Read" : "Not Read"} </div>
-        <button class="button remove-book-button">Remove</button>
-        `;
+        <div>Title: ${title}</div>
+        <div>Author: ${author}</div>
+        <div>Number of pages: ${pages}</div>
+        <div>Status: ${isRead ? "Read" : "Not Read"}</div>
+        <button class="button" onclick="removeBook(${i})">Remove</button>`;
     };
-}
+};
 
 function displayForm() {
     formCard.classList.add("active");
@@ -57,8 +57,9 @@ function hideForm() {
 
 overlay.addEventListener("click", hideForm)
 
-function name(params) {
-    
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    displayBooks();
 }
 
 submitButton.addEventListener("click", (e) => {

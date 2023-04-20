@@ -33,10 +33,18 @@ body {
     box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.2);
 }
 
-.book-card button {
+.book-card .remove-book-button {
+    width: 100%;
+    background: #fee2e2;
+}
+
+.book-card .toggle-book-status-button {
     width: 100%;
     margin-top: 32px;
-    background: #fee2e2;
+}
+
+.book-card .toggle-book-status-button.active {
+    background: #d1fae5;
 }
 
 header {

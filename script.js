@@ -38,8 +38,9 @@ function displayBooks() {
         <div>Title: ${title}</div>
         <div>Author: ${author}</div>
         <div>Number of pages: ${pages}</div>
-        <div>Status: ${isRead ? "Read" : "Not Read"}</div>
-        <button class="button" onclick="removeBook(${i})">Remove</button>`;
+        ${isRead ? `<button class="button toggle-book-status-button active" onclick="toggleBookStatus(${i})">Read</button>` : 
+        `<button class="button toggle-book-status-button" onclick="toggleBookStatus(${i})">Not Read</button>`}
+        <button class="button remove-book-button" onclick="removeBook(${i})">Remove</button>`;
     };
 };
 
@@ -62,6 +63,12 @@ function removeBook(index) {
     displayBooks();
 }
 
+function toggleBookStatus(index) {
+    const currentBook = myLibrary[index]; 
+    currentBook.isRead = currentBook.isRead ? false : true;
+    displayBooks();
+}
+
 submitButton.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -74,4 +81,6 @@ submitButton.addEventListener("click", (e) => {
 
     addBookToLibrary(title, author, pages, isRead);
     displayBooks();
+    hideForm();
+    addBookForm.reset();
 });

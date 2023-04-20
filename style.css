@@ -23,18 +23,25 @@ body {
 
 .book-card {
     background: #f1f5f9;
+    border-radius: 8px;
     padding: 32px;
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.2);
+}
+
+.book-card .remove-book-button {
+    width: 100%;
+    margin-top: 32px;
+    background: #fee2e2;
 }
 
 header {
     background-color: #f1f5f9;
-    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgb(0, 0, 0, 0.2);
 }
 
 header .container {
@@ -61,7 +68,7 @@ header .logo {
     cursor: pointer;
 }
 
-.add-book-form {
+.form-card {
     padding: 32px;
     border-radius: 8px;
     background: #f1f5f9;
@@ -73,7 +80,7 @@ header .logo {
     visibility: hidden;
 }
 
-.add-book-form form {
+.form-card form {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -18,17 +18,17 @@
     <main>
         <div class="book-grid"></div>
     </main>
-    <div class="add-book-form">
-        <form>
+    <div class="form-card">
+        <form class="add-book-form">
             <h1>Add Book</h1>
-            <input id="book-title" type="text" placeholder="Title">
-            <input id="book-author" type="text" placeholder="Author">
-            <input id="book-pages" type="number" placeholder="Number of pages">
+            <input id="book-title" name="title" type="text" placeholder="Title">
+            <input id="book-author" name="author" type="text" placeholder="Author">
+            <input id="book-pages" name="pages" type="number" placeholder="Number of pages">
             <div class="book-status">
                 <label for="book-status">Have you read the book?</label>
-                <input type="checkbox" name="" id="book-status">
+                <input type="checkbox" name="isRead" id="book-status">
             </div>
-            <button class="button" type="submit">Add</button>
+            <button class="button submit-button" type="submit">Submit</button>
         </form>
     </div>
     <div class="overlay"></div>

@@ -1,7 +1,10 @@
 const addBookButton = document.querySelector(".add-book-button");
-const addBookForm = document.querySelector(".add-book-form");
+const formCard = document.querySelector(".form-card");
 const overlay = document.querySelector(".overlay");
 const bookGrid = document.querySelector(".book-grid");
+
+const addBookForm = document.querySelector(".add-book-form");
+const submitButton = document.querySelector(".submit-button");
 
 let myLibrary = [];
 
@@ -19,35 +22,55 @@ function addBookToLibrary(title, author, pages, isRead) {
     myLibrary.push(new Book(title, author, pages, isRead));
 }
 
-function displayBook() {
-    myLibrary.forEach((book) => {
+function displayBooks() {
+    while (bookGrid.firstChild) {
+        bookGrid.removeChild(bookGrid.firstChild);
+    }
+
+    for (let i = 0; i < myLibrary.length; i++) {
+        const book = myLibrary[i];
+        const { title, author, pages, isRead } = book;
         const bookCard = document.createElement("div");
         bookCard.classList.add("book-card");
-        bookGrid.appendChild(bookCard); 
-        const bookTitle = document.createElement("div");
-        bookTitle.textContent = `Title: ${book.title}`;
-        bookCard.appendChild(bookTitle);
-        const bookAuthor = document.createElement("div");
-        bookAuthor.textContent = `Author: ${book.author}`;
-        bookCard.appendChild(bookAuthor);
-        const bookPages = document.createElement("div");
-        bookPages.textContent = `Number of pages: ${book.pages}`;
-        bookCard.appendChild(bookPages);
-        const bookStatus = document.createElement("div");
-        bookStatus.textContent = `Status: ${book.isRead ? "Read" : "Not Read"}`;
-        bookCard.appendChild(bookStatus);
-    });
+        bookGrid.appendChild(bookCard);
+        bookCard.innerHTML = `
+        <div> Title: ${title} </div>
+        <div> Author: ${author} </div>
+        <div> Number of pages: ${pages} </div>
+        <div> Status: ${isRead ? "Read" : "Not Read"} </div>
+        <button class="button remove-book-button">Remove</button>
+        `;
+    };
 }
 
 function displayForm() {
-    addBookForm.classList.add("active");
+    formCard.classList.add("active");
     overlay.classList.add("active");
 }
 
+addBookButton.addEventListener("click", displayForm);
+
 function hideForm() {
-    addBookForm.classList.remove("active");
+    formCard.classList.remove("active");
     overlay.classList.remove("active");
 }
 
-addBookButton.addEventListener("click", displayForm);
-overlay.addEventListener("click",hideForm)
+overlay.addEventListener("click", hideForm)
+
+function name(params) {
+    
+}
+
+submitButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(addBookForm);
+
+    const title = formData.get("title");
+    const author = formData.get("author");
+    const pages = formData.get("pages");
+    const isRead = formData.getAll("isRead").includes('on');
+
+    addBookToLibrary(title, author, pages, isRead);
+    displayBooks();
+});
